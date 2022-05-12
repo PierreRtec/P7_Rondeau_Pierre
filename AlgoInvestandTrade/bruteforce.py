@@ -1,6 +1,5 @@
 import csv
 
-# Algorithme
 # Algorithme suggestion liste d'actions les plus rentables (condition : après deux ans)
 #
 # DEBUT
