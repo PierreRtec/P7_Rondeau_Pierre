@@ -1,1 +1,3 @@
-# P7_Rondeau_Pierre
+# AlgoInvest & Trade
+
+### Investissements et algorithmes
