@@ -14,6 +14,7 @@ def lecture_des_donnees_importees():
 lecture_des_donnees_importees()
 
 def algo_optimized():
+    # algo opti
     pass
 
 
