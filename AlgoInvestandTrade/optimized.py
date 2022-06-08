@@ -2,8 +2,6 @@ import time
 
 from utils import lecture_des_donnees_importees
 
-PORTEFEUILLE = 500
-
 def algo_optimized(data):
 
     budget_portefeuille = 500
