@@ -38,15 +38,15 @@ dans notre cas c'est : `dataset1_Python+P7_full_one.csv`
 
 Placez-vous dans le fichier **optimized.py** :
 
-- cd ./AlgoInvestandtrade
-- py -m optimized
+- `cd ./AlgoInvestandtrade`
+- `py -m optimized`
 
 constatez le résultat ! 🙃
 
 Placez-vous dans le fichier **bruteforce.py** :
 
-- cd ./AlgoInvestandtrade
-- py -m bruteforce
+- `cd ./AlgoInvestandtrade`
+- `py -m bruteforce`
 
 ☣️ Attention ☣️
 
