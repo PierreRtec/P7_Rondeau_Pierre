@@ -4,7 +4,14 @@ from utils import lecture_des_donnees_importees
 
 
 def algo_optimized(data):
-
+    """
+    ALgorithme optimisé permettant de parcourir une liste de données
+    dans une matrice et d'en ressortir les meilleures combinaisons
+    possibles. Sachant qu'une action a un nom, un prix et un bénéfice.
+    L'algorithme calcule également le profit d'une action.
+    :param data: liste d'actions
+    :return: meilleur_profit, liste_actions_combinaisons:
+    """
     budget_portefeuille = 500
 
     matrice = [
@@ -50,6 +57,9 @@ def algo_optimized(data):
 
 
 def main():
+    """
+    Permet d'afficher dans le terminal les résultats de l'algorithme optimisé.
+    """
     data = lecture_des_donnees_importees()
     start = time.time()
     print("\n en cours de chargement")
