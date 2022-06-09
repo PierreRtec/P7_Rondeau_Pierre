@@ -1,7 +1,7 @@
 import csv
 
 
-def lecture_des_donnees_importees():
+def lecture_des_donnees_importees() -> list[list[str]]:
     try:
         file = open("../data/dataset1_Python+P7_echantillon_20.csv")
         csvreader = csv.reader(file)

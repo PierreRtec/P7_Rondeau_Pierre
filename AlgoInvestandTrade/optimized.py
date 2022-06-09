@@ -3,7 +3,7 @@ import time
 from utils import lecture_des_donnees_importees
 
 
-def algo_optimized(data):
+def algo_optimized(data: list[list[str]]) -> tuple[float, list]:
     """
     ALgorithme optimisé permettant de parcourir une liste de données
     dans une matrice et d'en ressortir les meilleures combinaisons
