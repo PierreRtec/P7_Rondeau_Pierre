@@ -2,11 +2,14 @@ import time
 
 from utils import lecture_des_donnees_importees
 
+
 def algo_optimized(data):
 
     budget_portefeuille = 500
 
-    matrice = [[0 for x in range(budget_portefeuille * 100 + 1)] for x in range(len(data) + 1)]
+    matrice = [
+        [0 for x in range(budget_portefeuille * 100 + 1)] for x in range(len(data) + 1)
+    ]
 
     for i in range(1, len(data) + 1):
         price = float(data[i - 1][1]) * 100
@@ -17,37 +20,45 @@ def algo_optimized(data):
                     matrice[i][w] = 0
                 elif price <= w:
                     matrice[i][w] = max(
-                        profit
-                        + matrice[i - 1][int(w - price)],
-                        matrice[i - 1][w]
+                        profit + matrice[i - 1][int(w - price)], matrice[i - 1][w]
                     )
                 else:
                     matrice[i][w] = matrice[i - 1][w]
-            except:
+            except Exception:
                 matrice[i][w] = matrice[i - 1][w]
                 continue
 
     n = len(data)
-    # tant qu'il y a des actions avec un profit supérieur à une valeur
-    # ajouter ces actions dans une liste*
-    actions_profit = matrice[n][budget_portefeuille * 100] / 100
-    liste_des_meilleures_actions = []
+    liste_actions_combinaisons = []
+    budget = 50000
 
-    while actions_profit >= 15.00 and budget_portefeuille >= 0:
-        actions_profit.append(liste_des_meilleures_actions)
+    while n >= 0 and budget >= 0:
+        action = data[n - 1]
+        price = float(action[1]) * 100
+        profit = price * float(action[2]) / 100
+        if (
+            matrice[n][budget] == matrice[n - 1][int(budget - price)] + profit
+            and price > 0
+        ):
+            liste_actions_combinaisons.append(action[0])
+            budget -= int(price)
+        n -= 1
 
-    return liste_des_meilleures_actions
+    meilleur_profit = matrice[-1][-1] / 100
 
-# actions les plus rentables = celles aux taux de profit supérieur ou égal à 15
+    return meilleur_profit, liste_actions_combinaisons
 
-# objectif >>> récup actions les plus rentables sur 2 ans donc par exemple
-# liste = [action 1, action 2, action 3] <- sensé être les plus rentables
 
 def main():
     data = lecture_des_donnees_importees()
     start = time.time()
-    print("\n resultat")
+    print("\n en cours de chargement")
+    meilleur_profit, liste_actions_combinaisons = algo_optimized(data)
+    print("la meilleure combinaison est :", liste_actions_combinaisons)
+    print("le meilleur profit est :", round(meilleur_profit, 2), "€")
     stop = time.time()
-    print(algo_optimized(data))
+    temps = stop - start
+    print("temps d'éxecution :", round(temps, 2), "secondes")
+
 
 main()
