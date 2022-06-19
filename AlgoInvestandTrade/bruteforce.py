@@ -16,7 +16,7 @@ def algo_brute():
             if total_prix <= portefeuille and total_gains > highest_benef:
                 best_combinaison = combinaison
                 highest_benef = total_gains
-    print(highest_benef)
+    print(round(highest_benef, 2))
     print(best_combinaison)
 
 algo_brute()
