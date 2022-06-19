@@ -64,7 +64,7 @@ def main():
     start = time.time()
     print("\n en cours de chargement")
     meilleur_profit, liste_actions_combinaisons = algo_optimized(data)
-    print("la liste des meilleures combinaisons d'actions :", liste_actions_combinaisons)
+    print("la liste des combinaisons d'actions :", liste_actions_combinaisons)
     print("le meilleur profit est :", round(meilleur_profit, 2), "€")
     stop = time.time()
     temps = stop - start
