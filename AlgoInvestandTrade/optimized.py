@@ -68,7 +68,7 @@ def main():
     cout, meilleur_profit, liste_actions_combinaisons = algo_optimized(data)
     print("la liste des combinaisons d'actions :", liste_actions_combinaisons)
     print("le meilleur profit est :", round(meilleur_profit, 2), "€")
-    print("le coût total des actions est de :", round(cout, 2), "€")
+    print("le coût total des actions est de :", round(cout, 0), "€")
     stop = time.time()
     temps = stop - start
     print("temps d'éxecution :", round(temps, 2), "secondes")
