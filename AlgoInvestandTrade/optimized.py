@@ -37,6 +37,7 @@ def algo_optimized(data: list[list[str]]) -> tuple[float, list]:
 
     n = len(data)
     liste_actions_combinaisons = []
+    cout = 0
     budget = 500 * 100
 
     while n >= 0 and budget >= 0:
@@ -47,13 +48,14 @@ def algo_optimized(data: list[list[str]]) -> tuple[float, list]:
             matrice[n][budget] == matrice[n - 1][int(budget - price)] + profit
             and price > 0
         ):
+            cout += float(action[1])
             liste_actions_combinaisons.append(action[0])
             budget -= int(price)
         n -= 1
 
     meilleur_profit = matrice[-1][-1] / 100
 
-    return meilleur_profit, liste_actions_combinaisons
+    return cout, meilleur_profit, liste_actions_combinaisons
 
 
 def main():
@@ -63,9 +65,10 @@ def main():
     data = lecture_des_donnees_importees()
     start = time.time()
     print("\n en cours de chargement")
-    meilleur_profit, liste_actions_combinaisons = algo_optimized(data)
+    cout, meilleur_profit, liste_actions_combinaisons = algo_optimized(data)
     print("la liste des combinaisons d'actions :", liste_actions_combinaisons)
     print("le meilleur profit est :", round(meilleur_profit, 2), "€")
+    print("le coût total des actions est de :", round(cout, 2), "€")
     stop = time.time()
     temps = stop - start
     print("temps d'éxecution :", round(temps, 2), "secondes")
